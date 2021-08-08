@@ -692,6 +692,11 @@ a:focus {
 	margin-bottom: 15px;
 }
 
+.home-page .insta-gallery-feed {
+	max-width: 1000px;
+	margin: auto;
+}
+
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
@@ -1906,6 +1911,22 @@ input.s {
 	opacity: 1;
 	-moz-opacity: 1;
 	filter:alpha(opacity=100);
+}
+
+.format-line {
+	display: flex;
+	padding: 0;
+}
+
+.format-line .post-featured-image {
+	flex: 4;
+	margin: 0;
+	height: 250px;
+}
+
+.format-line .entry-header {
+	flex: 6;
+	padding: 15px;
 }
 
 /*--------------------------------------------------------------

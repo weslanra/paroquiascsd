@@ -107,6 +107,11 @@ class Avonale_Include {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-admin.php';
 
 		/**
+		 * 	A classe responsável por definir todas as ações para o CPT de notícias.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-news.php';
+
+		/**
 		 * 	A classe responsável por definir todas as ações que ocorrem no lado 
 		 * 	voltado para o público do site.
 		 */
@@ -146,9 +151,14 @@ class Avonale_Include {
 	 */
 	private function define_admin_hooks() {
 		$plugin_admin = new Avonale_Admin( $this->get_plugin_name(), $this->get_version() );
+		$news 				= new News( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+
+		// Notícias
+		$this->loader->add_action( 'init', $news, 'register_post_type' );
+		$this->loader->add_action( 'acf/init', $news, 'register_field_groups' );
 	}
 
 	/**

@@ -27,7 +27,7 @@
 	$newscard_settings = newscard_get_option_defaults(); 
 ?>
 
-<div id="page" class="site">
+<div id="page" class="site home-page">
 	<a class="skip-link screen-reader-text" href="#content"><?= esc_html_e( 'Skip to content', 'newscard' ) ?></a>
 	<?php 
 	if( has_header_video() || has_header_image() ) {
@@ -156,15 +156,13 @@
 			$post_type_tp = array(
 				'posts_per_page' => 5,
 				'post__not_in' => get_option('sticky_posts'),
-				'post_type' => array(
-					'post'
-				),
+				'post_type' => array( 'noticias' ),
+				'meta_key'				=> 'alert',
+				'meta_value'			=> true
 			);
-			if ( $newscard_settings['newscard_top_stories_latest_post'] == 'category' ) {
-				$post_type_tp['category__in'] = $newscard_cat_tp;
-			}
 
-			$newscard_get_top_stories = new WP_Query($post_type_tp); ?>
+			$newscard_get_top_stories = new WP_Query($post_type_tp);
+		?>
 
 			<div class="top-stories-bar">
 				<div class="container">
@@ -256,7 +254,7 @@
 									$post_type_bs 		= array(
 										'posts_per_page' 	=> 5,
 										'post__not_in' 		=> get_option( 'sticky_posts' ),
-										'post_type' 			=> array( 'post' )
+										'post_type' 			=> array( 'noticias' )
 									);
 								if( $newscard_settings[ 'newscard_banner_slider_latest_post' ] == 'category' ) {
 									$post_type_bs[ 'category__in' ] = $newscard_bs_cat;
@@ -304,7 +302,7 @@
 									$post_type_fp 		= array(
 										'posts_per_page' 	=> 4,
 										'post__not_in' 		=> get_option('sticky_posts'),
-										'post_type' 			=> array( 'post' )
+										'post_type' 			=> array( 'noticias' )
 									);
 
 									if( $newscard_settings[ 'newscard_banner_featured_posts_1_latest_post' ] == 'category' ) {
@@ -458,7 +456,22 @@
 	</header><!-- #masthead -->
 	<div id="content" class="site-content <?php echo ( ( ( is_front_page() || ( is_home() && $newscard_settings['newscard_banner_display'] === 'front-blog' ) ) && ( $newscard_settings['newscard_banner_slider_posts_hide'] === 0 || $newscard_settings['newscard_banner_featured_posts_1_hide'] === 0 || $newscard_settings['newscard_banner_featured_posts_2_hide'] === 0 ) ) || ( ( is_front_page() || ( is_home() && $newscard_settings['newscard_header_featured_posts_banner_display'] === 'front-blog' ) ) && $newscard_settings['newscard_header_featured_posts_hide'] === 0 ) ) ? "pt-0" : ""; ?>">
 		<div class="container">
-			<?php
+			<?php if( is_front_page() || is_home() ) : ?>
+				<div class="row mb-30">
+					<div class="col">
+						<img 
+							width="2602" 
+							height="208" 
+							src="http://paroquia.test/wp-content/uploads/2021/08/Dizimo_imagem-1536x123-1.png"
+							class="image wp-image-14  attachment-full size-full" 
+							alt="" 
+							loading="lazy"
+						>
+					</div>
+				</div>
+			<?php 
+					echo do_shortcode( '[insta-gallery id="1"]' );
+				endif;
 				if( is_active_sidebar( 'newscard_home_page' ) )
 					dynamic_sidebar( 'newscard_home_page' );
 			?>

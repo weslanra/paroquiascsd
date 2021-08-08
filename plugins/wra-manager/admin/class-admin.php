@@ -2,7 +2,7 @@
 /**
  * 	A funcionalidade específica do administrador do plugin.
  *
- * @link       http://www.avonale.com/
+ * @link       https://github.com/weslanra/paroquiascsd
  * @since      1.0.0
  *
  * @package    AvonalePlugin
@@ -15,9 +15,9 @@
  * 	Define o nome do plug-in, a versão e dois exemplos de ganchos sobre como 
  * 	enfileirar a folha de estilo específica do administrador e o JavaScript.
  *
- * @package    AvonalePlugin
- * @subpackage AvonalePlugin/includes
- * @author     Avonale <weslan.alves@napista.com.br>
+ * @package    wra_manager
+ * @subpackage wra_manager/admin
+ * @author     Weslan <weslan.rezende@gmail.com>
  */
 class Avonale_Admin {
 
