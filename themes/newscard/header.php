@@ -154,14 +154,14 @@
 			$newscard_cat_tp = absint($newscard_settings['newscard_top_stories_categories']);
 
 			$post_type_tp = array(
-				'posts_per_page' => 5,
-				'post__not_in' => get_option('sticky_posts'),
-				'post_type' => array( 'noticias' ),
+				'posts_per_page' 	=> 5,
+				'post__not_in' 		=> get_option('sticky_posts'),
+				'post_type' 			=> array( 'matriz', 'bom-pastor', 'santa-cecilia', 'sao-jose', 'senhora-conceicao' ),
 				'meta_key'				=> 'alert',
 				'meta_value'			=> true
 			);
 
-			$newscard_get_top_stories = new WP_Query($post_type_tp);
+			$newscard_get_top_stories = new WP_Query( $post_type_tp );
 		?>
 
 			<div class="top-stories-bar">
@@ -254,7 +254,7 @@
 									$post_type_bs 		= array(
 										'posts_per_page' 	=> 5,
 										'post__not_in' 		=> get_option( 'sticky_posts' ),
-										'post_type' 			=> array( 'noticias' )
+										'post_type' 			=> array( 'matriz', 'bom-pastor', 'santa-cecilia', 'sao-jose', 'senhora-conceicao' )
 									);
 								if( $newscard_settings[ 'newscard_banner_slider_latest_post' ] == 'category' ) {
 									$post_type_bs[ 'category__in' ] = $newscard_bs_cat;
@@ -302,7 +302,7 @@
 									$post_type_fp 		= array(
 										'posts_per_page' 	=> 4,
 										'post__not_in' 		=> get_option('sticky_posts'),
-										'post_type' 			=> array( 'noticias' )
+										'post_type' 			=> array( 'matriz', 'bom-pastor', 'santa-cecilia', 'sao-jose', 'senhora-conceicao' )
 									);
 
 									if( $newscard_settings[ 'newscard_banner_featured_posts_1_latest_post' ] == 'category' ) {
@@ -394,9 +394,7 @@
 						$header_post_type = array(
 							'posts_per_page' => 4,
 							'post__not_in' => get_option('sticky_posts'),
-							'post_type' => array(
-								'post'
-							),
+							'post_type' => array( 'matriz', 'bom-pastor', 'santa-cecilia', 'sao-jose', 'senhora-conceicao' ),
 						);
 						if ( $newscard_settings['newscard_header_featured_latest_post'] == 'category' ) {
 							$header_post_type['category__in'] = $header_newscard_cat;

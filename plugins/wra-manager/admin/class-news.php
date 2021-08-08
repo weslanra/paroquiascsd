@@ -73,30 +73,73 @@ class News {
    */
   public function register_post_type() {
     $labels = array (
-      'name' 					=> 'Notícias',
-      'menu_name' 		=> 'Notícias',
-      'singular_name' => __( 'Notícia', 'noticia' ),
+      'name' 					=> 'Matriz',
+      'menu_name' 		=> 'Matriz',
+      'singular_name' => __( 'Matriz', 'matriz' ),
       'add_new_item'  => 'Adicionar Novo Item',
     );
     $args = array(
-      'label'                 => 'Notícias',
-      'description'           => 'Lista de notícias',
+      'label'                 => 'Matriz',
+      'description'           => 'Lista de notícias da Matriz',
       'labels'                => $labels,
       'supports'              => array( 'title', 'editor', 'author', 'excerpt', 'thumbnail' ),
       'hierarchical'          => false,
       'public'                => true,
       'show_ui'               => true,
-      'show_in_menu'          => true,
+      'show_in_menu'          => 'news-section',
       'show_in_admin_bar'     => true,
       'show_in_nav_menus'     => true,
       'can_export'            => true,
       'has_archive'           => true,
       'exclude_from_search'   => false,
-      'publicly_queryable'    => true,
-      'capability_type'       => 'post',
+      'publicly_queryable'    => true
     );
 
-    register_post_type( 'noticias', $args );
+    register_post_type( 'matriz', $args );
+
+    $labels = array (
+      'name' 					=> 'Bom Pastor',
+      'menu_name' 		=> 'Bom Pastor',
+      'singular_name' => __( 'Bom Pastor', 'bom-pastor' ),
+      'add_new_item'  => 'Adicionar Novo Item',
+    );
+    $args[ 'label' ]        = 'Bom Pastor';
+    $args[ 'labels' ]       = $labels;
+    $args[ 'description' ]  = 'Lista de notícias do Bom Pastor';
+    register_post_type( 'bom-pastor', $args );
+
+    $labels = array (
+      'name' 					=> 'Santa Cecília',
+      'menu_name' 		=> 'Santa Cecília',
+      'singular_name' => __( 'Santa Cecília', 'santa-cecilia' ),
+      'add_new_item'  => 'Adicionar Novo Item',
+    );
+    $args[ 'label' ]        = 'Santa Cecília';
+    $args[ 'labels' ]       = $labels;
+    $args[ 'description' ]  = 'Lista de notícias do Santa Cecília';
+    register_post_type( 'santa-cecilia', $args );
+
+    $labels = array (
+      'name' 					=> 'São José',
+      'menu_name' 		=> 'São José',
+      'singular_name' => __( 'São José', 'sao-jose' ),
+      'add_new_item'  => 'Adicionar Novo Item',
+    );
+    $args[ 'label' ]        = 'São José';
+    $args[ 'labels' ]       = $labels;
+    $args[ 'description' ]  = 'Lista de notícias do São José';
+    register_post_type( 'sao-jose', $args );
+
+    $labels = array (
+      'name' 					=> 'Nossa Senhora da Conceição',
+      'menu_name' 		=> 'Nossa Senhora da Conceição',
+      'singular_name' => __( 'Nossa Senhora da Conceição', 'senhora-conceicao' ),
+      'add_new_item'  => 'Adicionar Novo Item',
+    );
+    $args[ 'label' ]        = 'Nossa Senhora da Conceição';
+    $args[ 'labels' ]       = $labels;
+    $args[ 'description' ]  = 'Lista de notícias do Nossa Senhora da Conceição';
+    register_post_type( 'senhora-conceicao', $args );
   }
 
   /**
@@ -151,7 +194,14 @@ class News {
 						array(
 							'param' 		=> 'post_type',
 							'operator' 	=> '==',
-							'value' 		=> 'noticias',
+							'value' 		=> 'matriz',
+						),
+					),
+					array(
+						array(
+							'param' 		=> 'post_type',
+							'operator' 	=> '==',
+							'value' 		=> 'bom-pastor',
 						),
 					),
 				),

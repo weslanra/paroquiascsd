@@ -11,14 +11,22 @@ get_header();
 
 	newscard_layout_primary(); ?>
 		<main id="main" class="site-main">
+			<?php
+				$page_id 	= get_page_by_path( 'senhora-conceicao' )->ID;
+				$content 	= get_post_field( 'post_content', $page_id );
+				$title 		= get_post_field( 'post_title', $page_id );
+			?>
 
 			<?php if ( have_posts() ) : ?>
 
 				<header class="page-header">
-					<h1 class="page-title">Notícias</h1>
+					<h1 class="page-title"><?= $title ?></h1>
 				</header><!-- .page-header -->
 
 				<div class="row gutter-parent-14 post-wrap">
+					<div class="w-100 post content-community">
+						<?= $content ?>
+					</div>
 					<?php /* Start the Loop */
 					while ( have_posts() ) :
 						the_post();

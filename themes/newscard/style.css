@@ -697,6 +697,18 @@ a:focus {
 	margin: auto;
 }
 
+.page-header .page-title {
+	overflow: hidden!important;
+}
+
+.content-community {
+	padding: 15px;
+}
+
+.content-community p:last-child {
+	margin-bottom: 0;
+}
+
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/

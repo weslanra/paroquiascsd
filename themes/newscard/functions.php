@@ -174,6 +174,50 @@ function newscard_archive_title($title) {
 add_filter( 'get_the_archive_title', 'newscard_archive_title' );
 
 /**
+ * Checa se as páginas essenciais do site existem, pelo slug da página, caso
+ * não existe cria.
+ *
+ * @return void
+ */
+function check_pages_alive() {
+  if( !get_page_by_path( 'sobre-matriz' ) )
+    create_page( array( 'post_title' => 'Matriz', 'post_name' => 'sobre-matriz' ) );
+
+  if( !get_page_by_path( 'sobre-bom-pastor' ) )
+    create_page( array( 'post_title' => 'Bom Pastor', 'post_name' => 'sobre-bom-pastor' ) );
+		
+  if( !get_page_by_path( 'sobre-santa-cecilia' ) )
+    create_page( array( 'post_title' => 'Santa Cecília', 'post_name' => 'sobre-santa-cecilia' ) );
+
+  if( !get_page_by_path( 'sobre-sao-jose' ) )
+    create_page( array( 'post_title' => 'São José', 'post_name' => 'sobre-sao-jose' ) );
+
+  if( !get_page_by_path( 'sobre-senhora-conceicao' ) )
+    create_page( array( 'post_title' => 'Nossa Senhora da Conceição', 'post_name' => 'sobre-senhora-conceicao' ) );
+}
+
+add_action( 'init','check_pages_alive' );
+
+/**
+ * Esta função cria uma página no WP
+ *
+ * @param array $params
+ * @return void
+ */
+function create_page( $params ) {
+  $create_page = array(
+    'post_title'    => isset( $params[ 'post_title' ] ) ? $params[ 'post_title' ] : $params[ 'post_name' ],
+    'post_content'  => '',
+    'post_status'   => 'publish',
+    'post_type'     => 'page',
+    'post_name'     => $params[ 'post_name' ]
+  );
+
+  // Insert the post into the database
+  wp_insert_post( $create_page );
+}
+
+/**
  * Enqueue scripts and styles.
  */
 function newscard_scripts() {
