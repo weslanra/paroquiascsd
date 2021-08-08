@@ -460,7 +460,7 @@
 						<img 
 							width="2602" 
 							height="208" 
-							src="http://paroquia.test/wp-content/uploads/2021/08/Dizimo_imagem-1536x123-1.png"
+							src="<?= get_home_url() ?>/wp-content/themes/newscard/assets/image/banner_dizimo.png"
 							class="image wp-image-14  attachment-full size-full" 
 							alt="" 
 							loading="lazy"

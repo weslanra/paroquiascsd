@@ -12,7 +12,7 @@ get_header();
 	newscard_layout_primary(); ?>
 		<main id="main" class="site-main">
 			<?php
-				$page_id 	= get_page_by_path( 'sao-jose' )->ID;
+				$page_id 	= get_page_by_path( 'sobre-sao-jose' )->ID;
 				$content 	= get_post_field( 'post_content', $page_id );
 				$title 		= get_post_field( 'post_title', $page_id );
 			?>

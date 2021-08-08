@@ -162,22 +162,6 @@ class News {
             'instructions'      => 'Informe se a notícia é um aviso importante ou não',
             'required'          => 0,
           ),
-          array( 
-            'key'               => 'community',
-            'name'              => 'community',
-            'label'             => 'Comunidade',
-            'type'              => 'select',
-            'instructions'      => 'Selecione a comunidade, a qual essa notícia pertence',
-            'required'          => 1,
-            'choices'           => array( 
-              'Matriz'                      => 'Matriz',
-              'Bom Pastor'                  => 'Bom Pastor',
-              'Santa Cecília'               => 'Santa Cecília',
-              'São José'                    => 'São José',
-              'Nossa Senhora da Conceição'  => 'Nossa Senhora da Conceição',
-            ),
-            'return_format'     => 'value',
-          ),
           array(
 						'key' 					=> 'gallery',
 						'label' 				=> 'Galeria',
@@ -202,6 +186,27 @@ class News {
 							'param' 		=> 'post_type',
 							'operator' 	=> '==',
 							'value' 		=> 'bom-pastor',
+						),
+					),
+					array(
+						array(
+							'param' 		=> 'post_type',
+							'operator' 	=> '==',
+							'value' 		=> 'santa-cecilia',
+						),
+					),
+					array(
+						array(
+							'param' 		=> 'post_type',
+							'operator' 	=> '==',
+							'value' 		=> 'sao-jose',
+						),
+					),
+					array(
+						array(
+							'param' 		=> 'post_type',
+							'operator' 	=> '==',
+							'value' 		=> 'senhora-conceicao',
 						),
 					),
 				),
