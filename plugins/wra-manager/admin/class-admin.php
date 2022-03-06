@@ -151,5 +151,79 @@ class Avonale_Admin {
 			'',
 			4
 		);
+
+		// Menu Páginas
+		add_menu_page(
+			'Páginas', // page title
+			'Página', // menu title
+			'publish_community', // capability
+			'page-section', // menu slug
+			'', // call function
+			'dashicons-welcome-widgets-menus', // icon url
+			3 // position
+		);
+
+		// Adicionando submenu ao menu Nossa Senhora da Conceição
+		add_submenu_page( 
+			'page-section', 
+			'Dízimo', 
+			'Dízimo', 
+			'publish_posts', 
+			'post.php?post=' . get_page_by_path( 'dizimo' )->ID . '&action=edit',
+			'',
+			1
+		);
+	}
+
+	/**
+   * Criando grupo de campos
+   *
+   * @return void
+   */
+  function register_field_groups() {
+		if( function_exists( 'acf_add_local_field_group' ) ) {
+      // Campos do CPT notícias
+      acf_add_local_field_group( array(
+        'key'     	=> 'news_fields',
+        'title' 		=> 'Mias Informações',
+        'fields' 		=> array(
+          array( 
+            'key'               => 'alert',
+            'name'              => 'alert',
+            'label'             => 'Aviso importante?',
+            'type'              => 'true_false',
+            'instructions'      => 'Informe se a notícia é um aviso importante ou não',
+            'required'          => 0,
+          ),
+          array(
+						'key' 					=> 'gallery',
+						'label' 				=> 'Galeria',
+						'name' 					=> 'gallery',
+						'type' 					=> 'gallery',
+						'return_format' => 'array',
+						'preview_size' 	=> 'medium',
+						'insert' 				=> 'append',
+						'library' 			=> 'all',
+					)
+        ),
+        'location' => array(
+					array(
+						array(
+							'param' 		=> 'page',
+							'operator' 	=> '==',
+							'value' 		=> get_page_by_path( 'dizimo' )->ID,
+						),
+					),
+				),
+        'menu_order' 								=> 0,
+        'position' 									=> 'normal',
+        'style' 										=> 'default',
+        'label_placement' 					=> 'top',
+        'instruction_placement' 		=> 'label',
+        'hide_on_screen' 						=> '',
+        'active' 										=> true,
+        'description' 							=> '',
+      ));
+    }
 	}
 }

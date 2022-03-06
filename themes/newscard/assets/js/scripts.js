@@ -74,5 +74,13 @@ jQuery( function() {
 			jQuery('.main-navigation').find( '.dropdown-toggle.toggle-on').removeClass('toggle-on');
 		}
 	});
-
 });
+
+(function ($, root, undefined) {
+	$(function () {
+		$(document).on('click', '[data-toggle="lightbox"]', function(event) {
+			event.preventDefault();
+			$(this).ekkoLightbox();
+		});
+	});
+})(jQuery, this);

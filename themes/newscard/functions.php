@@ -194,6 +194,9 @@ function check_pages_alive() {
 
   if( !get_page_by_path( 'sobre-senhora-conceicao' ) )
     create_page( array( 'post_title' => 'Nossa Senhora da Conceição', 'post_name' => 'sobre-senhora-conceicao' ) );
+
+	if( !get_page_by_path( 'dizimo' ) )
+    create_page( array( 'post_title' => 'Seja um dizimista', 'post_name' => 'dizimo' ) );
 }
 
 add_action( 'init','check_pages_alive' );
@@ -223,7 +226,8 @@ function create_page( $params ) {
 function newscard_scripts() {
 	$newscard_settings = newscard_get_option_defaults();
 	wp_enqueue_style( 'bootstrap-style', get_template_directory_uri().'/assets/library/bootstrap/css/bootstrap.min.css', array(), '4.0.0');
-	wp_enqueue_style('font-awesome-style', get_template_directory_uri().'/assets/library/font-awesome/css/font-awesome.css');
+	wp_enqueue_style( 'font-awesome-style', get_template_directory_uri().'/assets/library/font-awesome/css/font-awesome.css');
+	wp_enqueue_style( 'ekko-lightbox-style', get_template_directory_uri() . '/assets/library/ekko-lightbox/ekko-lightbox.css');
 
 	wp_register_style( 'newscard-google-fonts', '//fonts.googleapis.com/css?family=Roboto:100,300,300i,400,400i,500,500i,700,700i');
 	wp_enqueue_style( 'newscard-google-fonts' );
@@ -262,6 +266,9 @@ function newscard_scripts() {
 	}
 
 	wp_enqueue_script('newscard-scripts', get_template_directory_uri().'/assets/js/scripts.js', array('jquery'), false, true);
+
+	// light-gallery
+	wp_enqueue_script( 'ekko-lightbox-scripts', get_template_directory_uri() . '/assets/library/ekko-lightbox/ekko-lightbox.min.js', array( 'jquery' ), false, true );
 }
 add_action( 'wp_enqueue_scripts', 'newscard_scripts' );
 

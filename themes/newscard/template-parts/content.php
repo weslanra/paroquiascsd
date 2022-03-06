@@ -13,11 +13,10 @@
 	<div class="col-sm-6<?php echo ( 'fullwidth' == $newscard_settings['newscard_content_layout'] ) ? ' col-lg-4': ''; ?> col-xxl-4 post-col">
 <?php } ?>
 	<div <?php post_class(); ?>>
-
-		<?php if ( has_post_thumbnail() ) {
-
-			if ( !is_single() ) { ?>
-
+		<?php 
+			if ( has_post_thumbnail() ) {
+				if ( !is_single() ) {
+		?>
 				<figure class="post-featured-image post-img-wrap">
 					<a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>" class="post-img" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(),'full')); ?>');"></a>
 					<div class="entry-meta category-meta">
@@ -25,7 +24,7 @@
 					</div><!-- .entry-meta -->
 				</figure><!-- .post-featured-image .post-img-wrap -->
 
-			<?php } elseif ( is_single() ) {
+			<?php } else if ( is_single() ) {
 
 				if ( $newscard_settings['newscard_featured_image_single'] === 1 ) { ?>
 
@@ -72,15 +71,48 @@
 			</header>
 		<?php } ?>
 		<div class="entry-content">
-			<?php if ( is_single() ) {
-				the_content();
-			} else {
-				if ( !(has_post_format('link') || has_post_format('quote')) ) { ?>
-					<p><?php echo wp_trim_words( get_the_excerpt(), 16 ); ?></p>
-				<?php } else {
+			<?php 
+				if ( has_post_thumbnail() ) :
+			?>
+					<figure class="post-featured-image post-img-wrap">
+						<a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>" class="post-img" style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(),'full')); ?>');"></a>
+						<div class="entry-meta category-meta">
+							<div class="cat-links"><?php the_category(' '); ?></div>
+						</div><!-- .entry-meta -->
+					</figure><!-- .post-featured-image .post-img-wrap -->
+			<?php
+				endif;
+
+				if ( is_single() ) {
 					the_content();
+				} else {
+					if ( !(has_post_format('link') || has_post_format('quote')) ) { ?>
+						<p><?php echo wp_trim_words( get_the_excerpt(), 16 ); ?></p>
+					<?php } else {
+						the_content();
+					}
+				} 
+
+				if( in_array( get_post_type(), array( 'matriz', 'bom-pastor', 'santa-cecilia', 'sao-jose', 'senhora-conceicao' ) ) ) {
+					$gallery = get_field( 'gallery' );
+					
+					echo '<ul class="post-gallery">';
+					foreach( $gallery as $image ) :
+				?>
+						<li>
+							<a 
+								href="<?= $image[ 'url' ] ?>"
+								data-toggle="lightbox" 
+								data-gallery="post-gallery" 
+							>
+								<img src="<?= $image[ 'url' ] ?>" class="img-fluid"/>
+							</a>
+						</li>
+				<?php
+					endforeach;
 				}
-			} ?>
+				echo '</ul>';
+			?>
 		</div><!-- entry-content -->
 
 		<?php if ( is_single() ) {
