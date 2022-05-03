@@ -17,16 +17,15 @@ get_header();
 				$title 		= get_post_field( 'post_title', $page_id );
 			?>
 
+			<header class="page-header">
+				<h1 class="page-title"><?= $title ?></h1>
+			</header><!-- .page-header -->
+			<div class="w-100 post content-community">
+				<?= $content ?>
+			</div>
+
 			<?php if ( have_posts() ) : ?>
-
-				<header class="page-header">
-					<h1 class="page-title"><?= $title ?></h1>
-				</header><!-- .page-header -->
-
 				<div class="row gutter-parent-14 post-wrap">
-					<div class="w-100 post content-community">
-						<?= $content ?>
-					</div>
 					<?php /* Start the Loop */
 					while ( have_posts() ) :
 						the_post();
@@ -49,7 +48,7 @@ get_header();
 
 			else :
 
-				get_template_part( 'template-parts/content', 'none' );
+				get_template_part( 'template-parts/content', 'news-not-find' );
 
 			endif;
 			?>
