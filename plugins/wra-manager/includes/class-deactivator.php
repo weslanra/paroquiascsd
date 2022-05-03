@@ -2,11 +2,11 @@
 /**
  * 	Disparado durante a desativação do plugin
  *
- * @link       http://www.avonale.com/
+ * @link       http://www.RnD.com/
  * @since      1.0.0
  *
- * @package    AvonalePlugin
- * @subpackage AvonalePlugin/includes
+ * @package    RnDPlugin
+ * @subpackage RnDPlugin/includes
  */
 
 /**
@@ -14,11 +14,11 @@
  * 	Esta classe define todo o código necessário para ser executado durante a desativação do plugin.
  *
  * @since      1.0.0
- * @package    AvonalePlugin
- * @subpackage AvonalePlugin/includes
- * @author     Avonale <weslan.alves@napista.com.br>
+ * @package    RnDPlugin
+ * @subpackage RnDPlugin/includes
+ * @author     RnD <weslan.alves@napista.com.br>
  */
-class Avonale_Deactivator {
+class RnD_Deactivator {
 
 	/**
 	 * Short Description. (use period)

@@ -2,11 +2,11 @@
 /**
  *  A funcionalidade do plug-in voltada para o público.
  *
- * @link       http://www.avonale.com/
+ * @link       http://www.RnD.com/
  * @since      1.0.0
  *
- * @package    AvonalePlugin
- * @subpackage AvonalePlugin/includes
+ * @package    RnDPlugin
+ * @subpackage RnDPlugin/includes
  */
 
 /**
@@ -16,11 +16,11 @@
  *  enfileirar a folha de estilo específica do administrador e o JavaScript.
  *
  *
- * @package    AvonalePlugin
- * @subpackage AvonalePlugin/includes
- * @author     Avonale <weslan.alves@napista.com.br>
+ * @package    RnDPlugin
+ * @subpackage RnDPlugin/includes
+ * @author     RnD <weslan.alves@napista.com.br>
  */
-class Avonale_Public {
+class RnD_Public {
 
 	/**
    *  O ID deste plugin.
@@ -58,7 +58,7 @@ class Avonale_Public {
 	 * @since    1.0.0
 	 */
 	public function enqueue_styles() {
-		wp_enqueue_style( $this->plugin_name . '_style', plugin_dir_url( __FILE__ ) . 'css/avonale-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name . '_style', plugin_dir_url( __FILE__ ) . 'css/RnD-public.css', array(), $this->version, 'all' );
 	}
 
 	/**
@@ -67,6 +67,6 @@ class Avonale_Public {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-		wp_enqueue_script( $this->plugin_name . '_script', plugin_dir_url( __FILE__ ) . 'js/avonale-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name . '_script', plugin_dir_url( __FILE__ ) . 'js/RnD-public.js', array( 'jquery' ), $this->version, false );
 	}
 }

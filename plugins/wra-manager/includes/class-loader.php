@@ -2,26 +2,26 @@
 /**
  *  Registre todas as ações e filtros para o plugin
  *
- * @link       http://www.avonale.com/
+ * @link       http://www.RnD.com/
  * @since      1.0.0
  *
- * @package    AvonalePlugin
- * @subpackage AvonalePlugin/includes
+ * @package    RnDPlugin
+ * @subpackage RnDPlugin/includes
  */
 
 /**
  * Register all actions and filters for the plugin.
  *
  * Maintain a list of all hooks that are registered throughout
- * the plugin, and register them with the WordPress Avonale. Call the
+ * the plugin, and register them with the WordPress RnD. Call the
  * run function to execute the list of actions and filters.
  *
- * @package    AvonalePlugin
- * @subpackage AvonalePlugin/includes
- * @author     Avonale <weslan.alves@napista.com.br>
+ * @package    RnDPlugin
+ * @subpackage RnDPlugin/includes
+ * @author     RnD <weslan.alves@napista.com.br>
  */
 
-class Avonale_Loader {
+class RnD_Loader {
 
 	/**
    *  O conjunto de ações registradas no WordPress.

@@ -5,8 +5,8 @@
  * @link       https://github.com/weslanra/paroquiascsd
  * @since      1.0.0
  *
- * @package    AvonalePlugin
- * @subpackage AvonalePlugin/includes
+ * @package    RnDPlugin
+ * @subpackage RnDPlugin/includes
  */
 
 /**

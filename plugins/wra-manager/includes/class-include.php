@@ -3,13 +3,13 @@
  *  O arquivo que define a classe core do plugin
  * 
  *  Uma definição de classe que inclui atributos e funções usadas para contruir 
- *  rotas de consumo do Plugin Avonale
+ *  rotas de consumo do Plugin RnD
  *
- * @link       http://www.avonale.com/
+ * @link       http://www.RnD.com/
  * @since      1.0.0
  *
- * @package    AvonalePlugin
- * @subpackage AvonalePlugin/includes
+ * @package    RnDPlugin
+ * @subpackage RnDPlugin/includes
  */
 
 /**
@@ -22,18 +22,18 @@
  *  versão do plugin.
  *
  * @since      1.0.0
- * @package    AvonalePlugin
- * @subpackage AvonalePlugin/includes
- * @author     Avonale <weslan.alves@napista.com.br>
+ * @package    RnDPlugin
+ * @subpackage RnDPlugin/includes
+ * @author     RnD <weslan.alves@napista.com.br>
  */
-class Avonale_Include {
+class RnD_Include {
 
 	/**
 	 * 	O loader é responsável por manter e registrar todos os ganchos que acionam o plugin.
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      Avonale_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      RnD_Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -65,7 +65,7 @@ class Avonale_Include {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		$this->plugin_name 	= 'avonale_assobens';
+		$this->plugin_name 	= 'RnD_assobens';
 		$this->version 			= '1.0.0';
 
 		$this->load_dependencies();
@@ -78,10 +78,10 @@ class Avonale_Include {
 	 * 	Carregue as dependências necessárias para este plugin.
 	 * 
 	 * 	Inclua os seguintes arquivos que constituem o plug-in:
-	 * 	- Avonale_Loader. Orquestra os ganchos do plug-in.
-	 * 	- Avonale_i18n. Define a funcionalidade de internacionalização.
-	 * 	- Avonale_Admin. Define todos os ganchos para a área administrativa.
-	 *  - Avonale_Public. Define todos os ganchos para o lado público do site.
+	 * 	- RnD_Loader. Orquestra os ganchos do plug-in.
+	 * 	- RnD_i18n. Define a funcionalidade de internacionalização.
+	 * 	- RnD_Admin. Define todos os ganchos para a área administrativa.
+	 *  - RnD_Public. Define todos os ganchos para o lado público do site.
 	 * 
 	 * 	Crie uma instância do carregador que será usada para registrar os ganchos 
 	 * 	com o WordPress.
@@ -110,6 +110,11 @@ class Avonale_Include {
 		 * 	A classe responsável por definir todas as ações para o CPT de notícias.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-news.php';
+		
+		/**
+		 * 	A classe responsável por definir todas as ações para o CPT espaço do frei.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-friar-space.php';
 
 		/**
 		 * 	A classe responsável por definir todas as ações que ocorrem no lado 
@@ -117,26 +122,26 @@ class Avonale_Include {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-public.php';
 
-		$this->loader = new Avonale_Loader();
+		$this->loader = new RnD_Loader();
 	}
 
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
-	 * Uses the Avonale_i18n class in order to set the domain and to register the hook
+	 * Uses the RnD_i18n class in order to set the domain and to register the hook
 	 * with WordPress.
 	 * 
 	 * pt-br
 	 * 	Defina a localidade para este plugin para internacionalização.
 	 * 
-	 * 	Usa a classe Avonale_i18n para definir o domínio e registrar o gancho com 
+	 * 	Usa a classe RnD_i18n para definir o domínio e registrar o gancho com 
 	 * 	WordPress.
 	 *
 	 * @since    1.0.0
 	 * @access   private
 	 */
 	private function set_locale() {
-		$plugin_i18n = new Avonale_i18n();
+		$plugin_i18n = new RnD_i18n();
 		$plugin_i18n->set_domain( $this->get_plugin_name() );
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
@@ -150,8 +155,9 @@ class Avonale_Include {
 	 * @access   private
 	 */
 	private function define_admin_hooks() {
-		$plugin_admin = new Avonale_Admin( $this->get_plugin_name(), $this->get_version() );
+		$plugin_admin = new RnD_Admin( $this->get_plugin_name(), $this->get_version() );
 		$news 				= new News( $this->get_plugin_name(), $this->get_version() );
+		$friar_space 	= new Friar_Space( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
@@ -160,6 +166,9 @@ class Avonale_Include {
 		// Notícias
 		$this->loader->add_action( 'init', $news, 'register_post_type' );
 		$this->loader->add_action( 'acf/init', $news, 'register_field_groups' );
+
+		// Espaço do frei
+		$this->loader->add_action( 'init', $friar_space, 'register_post_type' );
 	}
 
 	/**
@@ -170,7 +179,7 @@ class Avonale_Include {
 	 * @access   private
 	 */
 	private function define_public_hooks() {
-		$plugin_public = new Avonale_Public( $this->get_plugin_name(), $this->get_version() );
+		$plugin_public = new RnD_Public( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
@@ -200,7 +209,7 @@ class Avonale_Include {
 	 * 	A referência à classe que orquestra os ganchos com o plug-in.
 	 *
 	 * @since     1.0.0
-	 * @return    Avonale_Loader    Orchestrates the hooks of the plugin.
+	 * @return    RnD_Loader    Orchestrates the hooks of the plugin.
 	 */
 	public function get_loader() {
 		return $this->loader;

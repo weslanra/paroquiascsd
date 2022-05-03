@@ -5,11 +5,11 @@
  *  Carrega e define os arquivos de internacionalização deste plugin 
  *  para que esteja pronto para tradução.
  *
- * @link       http://www.avonale.com/
+ * @link       http://www.RnD.com/
  * @since      1.0.0
  *
- * @package    AvonalePlugin
- * @subpackage AvonalePlugin/includes
+ * @package    RnDPlugin
+ * @subpackage RnDPlugin/includes
  */
 
 /**
@@ -18,11 +18,11 @@
  *  Carrega e define os arquivos de internacionalização deste plugin 
  *  para que esteja pronto para tradução.
  *
- * @package    AvonalePlugin
- * @subpackage AvonalePlugin/includes
- * @author     Avonale <weslan.alves@napista.com.br>
+ * @package    RnDPlugin
+ * @subpackage RnDPlugin/includes
+ * @author     RnD <weslan.alves@napista.com.br>
  */
-class Avonale_i18n {
+class RnD_i18n {
 	/**
    *  O domínio especificado para este plugin.
 	 *

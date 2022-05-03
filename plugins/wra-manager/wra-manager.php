@@ -3,7 +3,7 @@
  * Plugin Name:     WRA Manager
  * Plugin URI:      https://github.com/weslanra/paroquiascsd
  * Description:     Plugin com as regras de negócio da PSCSD.
- * Author:          Avonale
+ * Author:          RnD
  * Author URI:      https://github.com/weslanra
  * Text Domain:     wra-manager
  * Domain Path:     /languages
@@ -26,7 +26,7 @@ if( !defined( 'WPINC' ) ) {
  */
 function activate() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-activator.php';
-	Avonale_Activator::activate();
+	RnD_Activator::activate();
 }
 
 /**
@@ -35,7 +35,7 @@ function activate() {
  */
 function deactivate() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-deactivator.php';
-	Avonale_Deactivator::deactivate();
+	RnD_Deactivator::deactivate();
 }
 
 register_activation_hook( __FILE__, 'activate' );
@@ -57,7 +57,7 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-include.php';
  * @since    1.0.0
  */
 function run_wra_plugin() {
-	$plugin = new Avonale_Include();
+	$plugin = new RnD_Include();
 	$plugin->run();
 }
 

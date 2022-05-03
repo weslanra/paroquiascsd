@@ -5,8 +5,8 @@
  * @link       https://github.com/weslanra/paroquiascsd
  * @since      1.0.0
  *
- * @package    AvonalePlugin
- * @subpackage AvonalePlugin/includes
+ * @package    RnDPlugin
+ * @subpackage RnDPlugin/includes
  */
 
 /**
@@ -19,7 +19,7 @@
  * @subpackage wra_manager/admin
  * @author     Weslan <weslan.rezende@gmail.com>
  */
-class Avonale_Admin {
+class RnD_Admin {
 
 	/**
 	 * 	O ID deste plugin.
@@ -57,7 +57,7 @@ class Avonale_Admin {
 	 * @since    1.0.0
 	 */
 	public function enqueue_styles() {
-		wp_enqueue_style( $this->plugin_name . '_admin_style', plugin_dir_url( __FILE__ ) . 'css/avonale-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name . '_admin_style', plugin_dir_url( __FILE__ ) . 'css/RnD-admin.css', array(), $this->version, 'all' );
 	}
 
 	/**
@@ -66,7 +66,7 @@ class Avonale_Admin {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-		wp_enqueue_script( $this->plugin_name . '_admin_script', plugin_dir_url( __FILE__ ) . 'js/avonale-admin.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name . '_admin_script', plugin_dir_url( __FILE__ ) . 'js/RnD-admin.js', array( 'jquery' ), $this->version, false );
 	}
 
 	/**
