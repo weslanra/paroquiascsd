@@ -18,11 +18,11 @@ get_header();
 		<main id="main" class="site-main">
       <div class="page type-page status-publish hentry">
         <header class="entry-header">
-          <h1 class="entry-title">Ergue-te 2022</h1>
+          <h1 class="entry-title"><?= get_the_title() ?></h1>
         </header><!-- .entry-header -->
         <div class="entry-content">
           <a href="https://forms.gle/b3zJsViKu4xyebDG8" target="_blank">
-            <figure class="wp-block-image size-large">
+            <figure class="wp-block-image size-large mb-3">
               <img 
                 width="1024" 
                 height="1024" 
@@ -32,14 +32,34 @@ get_header();
               >
             </figure>
           </a>
+          <p>O Ergue-te é um evento que tem como intuito aproximar a juventude da igreja para o encontro a Cristo.</p>
+          <p>Idealizado pela Comissão Paroquial da Juventude (CPJ), onde  promover eventos religiosos voltados para o público jovem.</p>
+          <p>No ano de 2022 o CPJ esta promovendo em sua 3° edição o encontro para a juventude, onde é o momento de mudança, reflexão, diversão e encontro com Cristo.</p>
+          <p>O evento acontecerá de 13 à 15 de maio no recanto Franciscano localizado no Pov. Mosqueiro, ao lado a orla pôr do sol.</p>
+          <p>
+            Os valores foram planejado de uma forma acessível para a participação de todos:<br>
+            Primeiro Lote durante todo o mês de Março<br>
+            Valores Promocionais:<br>
+            <ul>
+              <li>Uma pessoa: R$50,00</li>
+              <li>Três pessoas: R$120,00</li>
+            </ul>
+          </p>
+          <p>
+            Podendo ser pagos também via cartão de crédito.<br>
+            (OBS: Consultar taxas de juros)
+          </p>
+          <p>Inscrições abertas! <strong>Vagas Limitadas.</strong></p>
           <div class="quote">
-            <div class="testimonial">
-              <div class="icon">
-                <i class="fa fa-wpforms"></i>
+            <a href="https://forms.gle/b3zJsViKu4xyebDG8" target="_blank">
+              <div class="testimonial">
+                <div class="icon">
+                  <i class="fa fa-wpforms"></i>
+                </div>
+                <p class="label">Formulário de inscrição</p>
+                <p class="text-testimonial">Garanta já sua vaga</p>
               </div>
-              <a href="https://forms.gle/b3zJsViKu4xyebDG8" target="_blank">Formulário de inscrição</a>
-              <p class="text-testimonial">Garanta já sua vaga</p>
-            </div>
+            </a>
 
             <p class="text-quote">
               Primeiro Lote durante todo o mês de Março<br>

@@ -4802,23 +4802,28 @@ p.has-background {
 }
 
 .testimonial {
-	padding-left: 60px;
 	position: relative;
 	margin-bottom: 20px;
+	display: inline-block;
+	background: #cbfeeb;
+	padding: 8px 15px 8px 60px;
+	border: 2px solid #21826d;
+	border-radius: 8px;
 }
 
 .testimonial .icon {
 	position: absolute;
 	font-size: 3rem;
-	left: 0;
+	left: 8px;
 	top: 50%;
 	color: #271b31;
 	transform: translateY(-50%);
 }
 
-.testimonial a {
+.testimonial .label {
 	font-weight: bold;
 	color: #271b31;
+	margin-bottom: 0;
 }
 
 .testimonial .text-testimonial {
