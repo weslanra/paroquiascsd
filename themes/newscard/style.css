@@ -4829,3 +4829,19 @@ p.has-background {
 .testimonial .text-testimonial {
 	margin: 0;
 }
+
+/* Recadinho do Bom Pastor */
+.wrapper-sort-number .number {
+	display: block;
+	text-align: center;
+	font-size: 5rem;
+	font-family: "Roboto Mono", sans-serif;
+}
+
+.wrapper-sort-number .btn-number-random {
+	display: block;
+	font-size: 1rem;
+	font-weight: bold;
+	width: 80%;
+	margin: 20px auto;
+}

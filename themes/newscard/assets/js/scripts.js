@@ -84,3 +84,22 @@ jQuery( function() {
 		});
 	});
 })(jQuery, this);
+
+/**
+ * Função generica para aplicar animção de sorteio e sortear um número
+ * @param {string} element_id 
+ */
+function drawNumber( element_id, max = 52, min = 1, step = 200 ) {
+	let elm = document.getElementById( element_id );	
+
+	const updateCounter = ( i, target, elm ) => {
+		if( i <= target ) {
+			elm.innerHTML = i;
+			setTimeout( () => {
+				updateCounter( i + 1, target, elm );
+			}, 50 );
+		}
+	}
+	
+	updateCounter( 0, Math.floor( Math.random() * max) + min, elm );
+}
