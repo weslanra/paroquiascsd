@@ -83,6 +83,7 @@ class Friar_Space {
       'description'           => 'Lista de posts do frei',
       'labels'                => $labels,
       'supports'              => array( 'title', 'editor', 'author', 'excerpt', 'thumbnail' ),
+			'capability_type'     	=> array( 'friar_spaces', 'friar_space' ),
       'hierarchical'          => false,
       'public'                => true,
       'show_ui'               => true,
